@@ -15,7 +15,8 @@ understand what each file is for, and run it locally in your browser.
 
 ```bash
 # download:
-git clone git@github.com:itrocks-ts/hello-world
+git clone https://github.com/itrocks-ts/hello-world
+cd hello-world
 # install dependencies:
 npm install
 # compile TypeScript to runnable JavaScript:
@@ -34,10 +35,10 @@ Open `http://localhost:3000` to see “Hello World!”.
 ├─ app/
 │  └─ main.ts         # App code: framework bootstrap + your first user action
 ├─ config.yaml        # Access rules and routing
-├─ package.json       # Metadata, scripts, dependencies
-├─ tsconfig.json      # TypeScript compiler configuration
 ├─ node_modules/      # Installed dependencies (generated)
-└─ README.md          # This tutorial
+├─ package.json       # Metadata, scripts, dependencies
+├─ README.md          # This tutorial
+└─ tsconfig.json      # TypeScript compiler configuration
 ```
 
 ### 1) `app/main.ts` — your first user action
@@ -123,36 +124,30 @@ You do not need to modify it manually.
 ## Extend the example: add a new route
 
 1. Add a new user action:
-
    ```ts
+   import { Request } from '@itrocks/action-request'
+
    export function hello(request: Request)
    {
-     const name = request.data.name
+     const name = request.data.name ?? 'you'
      return `Hello ${name}!`
    }
    ```
 
 2. Map it in `config.yaml`:
-
    ```yaml
    routes:
      /: /app/main
      /hello: /app/main:hello
    ```
 
-3. Rebuild the app:
-
+3. Rebuild an restart the app:
    ```bash
    npm run build
-   ```
-
-4. Restart:
-
-   ```bash
    npm start
    ```
 
-5. Visit:  
+4. Visit:  
    `http://localhost:3000/hello?name=Baptiste`
 
 ## Troubleshooting
