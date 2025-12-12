@@ -1,0 +1,5 @@
+access:
+  free: '*'
+
+routes:
+  /: /app/main

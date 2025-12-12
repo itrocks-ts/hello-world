@@ -1,0 +1,19 @@
+{
+  "author": {
+    "name": "Baptiste Pillot",
+    "email": "baptiste@pillot.fr"
+  },
+  "description": "A minimal Hello World application built with the it.rocks framework",
+  "name": "hello-world",
+  "dependencies": {
+    "@itrocks/framework": "latest"
+  },
+  "devDependencies": {
+    "typescript": "5.9"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node app/main"
+  },
+  "version": "0.1.0"
+}

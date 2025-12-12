@@ -1,0 +1,14 @@
+/.idea
+.DS_Store
+
+/node_modules
+/session/*
+!/session/contains-session-data
+
+/local.yaml
+/package-lock.json
+
+*.css
+*.d.ts
+*.js
+*.map
